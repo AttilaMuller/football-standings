@@ -1,0 +1,11 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(to right top, #780044, #6f0650, #62105a, #521964, #3c216b, #2f2d74, #1e387b, #004180, #005286, #006082, #006c78, #00766c);
+  height: 100%;
+}
+
+.container {
+  min-height: 1000px;;
+}

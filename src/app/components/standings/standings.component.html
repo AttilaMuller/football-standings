@@ -1,0 +1,64 @@
+<mat-form-field>
+  <mat-label>Leagues</mat-label>
+  <mat-select #select (selectionChange)="getStandings(select.value)">
+    <mat-option value="bundesliga">Bundesliga (GE)</mat-option>
+    <mat-option value="premiereLeague">Premiere League (EN)</mat-option>
+    <mat-option value="serieA">Serie A (IT)</mat-option>
+    <mat-option value="primeraDivision">Primera Division (ES)</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<table mat-table [dataSource]="teams$">
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> # </th>
+    <td mat-cell *matCellDef="let team"> {{team.position}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Team </th>
+    <td mat-cell *matCellDef="let team"> {{team.team.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="playedGames">
+    <th mat-header-cell *matHeaderCellDef> PLD </th>
+    <td mat-cell *matCellDef="let team"> {{team.playedGames}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="won">
+    <th mat-header-cell *matHeaderCellDef> W </th>
+    <td mat-cell *matCellDef="let team"> {{team.won}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="draw">
+    <th mat-header-cell *matHeaderCellDef> D </th>
+    <td mat-cell *matCellDef="let team"> {{team.draw}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lost">
+    <th mat-header-cell *matHeaderCellDef> L </th>
+    <td mat-cell *matCellDef="let team"> {{team.lost}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="points">
+    <th mat-header-cell *matHeaderCellDef> PTS </th>
+    <td mat-cell *matCellDef="let team"> {{team.points}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="goalsFor">
+    <th mat-header-cell *matHeaderCellDef> GF </th>
+    <td mat-cell *matCellDef="let team"> {{team.goalsFor}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="goalsAgainst">
+    <th mat-header-cell *matHeaderCellDef> GA </th>
+    <td mat-cell *matCellDef="let team"> {{team.goalsAgainst}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="goalDifference">
+    <th mat-header-cell *matHeaderCellDef> GD </th>
+    <td mat-cell *matCellDef="let team"> {{team.goalDifference}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+</table>
