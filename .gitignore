@@ -47,3 +47,6 @@ Thumbs.db
 
 # enviroment
 environment-vars.ts
+firebase.json
+.firebaserc
+.firebase
