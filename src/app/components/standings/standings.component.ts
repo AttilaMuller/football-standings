@@ -29,7 +29,7 @@ export class StandingsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.standingService.fetchStandings("premiereLeague");
+    this.standingService.fetchStandings("premierLeague");
     this.teams$ = this.standingService.teams;
   }
 
